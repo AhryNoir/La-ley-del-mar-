@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 394}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 928
+  controlID: 336
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 394}
   m_MaxSize: {x: 10004, y: 14044}
   vertical: 1
-  controlID: 867
+  controlID: 337
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -361,9 +361,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 82290000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: daf6fffff8f6ffff16f7ffff34f7ffff52f7ffff70f7ffffe4f9ffff02faffff24faffff
+      m_ExpandedIDs: 9afaffff8efbffffb62c0000be2c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -630,11 +630,11 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/logo/botones
+    - Assets/logo/cosas
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/logo/botones
+  - Assets/logo/cosas
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\La-ley-del-mar-\LA LEY DEL
     MAR
@@ -642,9 +642,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 722a0000
-    m_LastClickedID: 10866
-    m_ExpandedIDs: 0000000016290000542b000000ca9a3b
+    m_SelectedIDs: 62290000
+    m_LastClickedID: 10594
+    m_ExpandedIDs: 00000000f6280000382b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -672,7 +672,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001629000000ca9a3b
+    m_ExpandedIDs: 00000000f628000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -699,8 +699,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: fa30000000000000882a0000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: fa30000000000000882a00008a2c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
