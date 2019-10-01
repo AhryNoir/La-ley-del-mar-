@@ -22,7 +22,7 @@ public class cambio_escena : MonoBehaviour {
 
     public void juego() {
 
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("campo de pruebas");
         jugar_tuto.interactable = false;
 
     }
@@ -30,7 +30,7 @@ public class cambio_escena : MonoBehaviour {
     public void juego1()
     {
 
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("campo de pruebas");
         jugar_inicio.interactable = false;
 
     }
