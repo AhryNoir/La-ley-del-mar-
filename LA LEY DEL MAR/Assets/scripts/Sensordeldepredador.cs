@@ -9,10 +9,11 @@ public class Sensordeldepredador : MonoBehaviour
     public GameObject predator, presa, flecha;
     // Vector2 startposition, endposition;
     public float startpositionx, startpositiony, endpositionx, endpositiony, movimiento, contador;
+    public GameObject startprey, endprey, startpredator, endpredator;
     // Start is called before the first frame update
     void Start()
     {
-        Predatorturn = true;
+        Predatorturn = false;
         preyturn = false;
         movimiento = 1f;
     }
@@ -31,6 +32,10 @@ public class Sensordeldepredador : MonoBehaviour
             startpositionx = presa.transform.position.x;
             startpositiony = presa.transform.position.y;
         contador = 7;
+
+        endprey.SetActive(true);
+        startprey.SetActive(false);
+       
        // }
     }
     public void okprey()
@@ -41,7 +46,9 @@ public class Sensordeldepredador : MonoBehaviour
            preyturn = false;
             endpositionx = presa.transform.position.x;
             endpositiony = presa.transform.position.y;
-       // }
+        startpredator.SetActive(true);
+        endprey.SetActive(false);
+      
     }
     public void predatorready()
     {
@@ -49,10 +56,14 @@ public class Sensordeldepredador : MonoBehaviour
        // if (Predatorturn == false && preyturn == false)
        // {
             Vector2 margen = new Vector2(startpositionx - endpositionx, startpositiony - endpositiony);
-
+        contador = 10;
             Predatorturn = true;
             Instantiate(flecha, predator.transform.position, Quaternion.LookRotation(margen, predator.transform.position));
-       // }
+        endpredator.SetActive(true);
+        startpredator.SetActive(false);
+       
+
+        // }
     }
     public void predatorok()
     {
@@ -60,43 +71,80 @@ public class Sensordeldepredador : MonoBehaviour
         // if (Predatorturn == true && preyturn == false)
         // {
         Predatorturn = false;
-       // }
+        startprey.SetActive(true);
+        endpredator.SetActive(false);
+
+
+        // }
     }
     public void up()
     {
+
         if (contador > 0)
         {
-            presa.transform.Translate(new Vector3(0, movimiento, 0));
-            contador = contador - 1;
+            if (preyturn == true)
+            {
+                presa.transform.Translate(new Vector3(0, movimiento, 0));
+                contador = contador - 1;
+            }
+            if (Predatorturn == true)
+            {
+                predator.transform.Translate(new Vector3(0, movimiento, 0));
+                contador = contador - 1;
+            }
+
         }
-        
     }
     public void down()
     {
+
         if (contador > 0)
         {
-            presa.transform.Translate(new Vector3(0, -movimiento, 0));
-            contador = contador - 1;
+            if (preyturn == true)
+            {
+                presa.transform.Translate(new Vector3(0, -movimiento, 0));
+                contador = contador - 1;
+            }
+            if (Predatorturn == true)
+            {
+                predator.transform.Translate(new Vector3(0, -movimiento, 0));
+                contador = contador - 1;
+            }
         }
-        
     }
     public void left()
     {
+       
         if (contador > 0)
         {
-            presa.transform.Translate(new Vector3(-movimiento, 0, 0));
-            contador = contador - 1;
-        }
-       
+            if (preyturn == true)
+            {
+                presa.transform.Translate(new Vector3(-movimiento, 0, 0));
+                contador = contador - 1;
+            }
+            if (Predatorturn == true)
+            {
+                predator.transform.Translate(new Vector3(-movimiento, 0, 0));
+                contador = contador - 1;
+            }
+        }      
     }
     public void right()
     {
         if (contador > 0)
         {
-            presa.transform.Translate(new Vector3(movimiento, 0, 0));
-            contador = contador - 1;
+            if (preyturn == true)
+            {
+                presa.transform.Translate(new Vector3(movimiento, 0, 0));
+                contador = contador - 1;
+            }
+            if (Predatorturn == true)
+            {
+                predator.transform.Translate(new Vector3(movimiento, 0, 0));
+                contador = contador - 1;
+            }
+
         }
-    }
-        
+    }  
     
 }
