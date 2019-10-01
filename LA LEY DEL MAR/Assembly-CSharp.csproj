@@ -63,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\cambio_escena.cs" />
-    <Compile Include="Assets\Scripts\Sensordeldepredador.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/USUARIO/Documents/GitHub/La-ley-del-mar-/LA LEY DEL MAR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
