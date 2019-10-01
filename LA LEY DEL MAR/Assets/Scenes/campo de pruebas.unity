@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 525697772}
   - component: {fileID: 525697771}
   m_Layer: 5
-  m_Name: Button
+  m_Name: readyprey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,8 +657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 553.4, y: 294}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 4.2, y: 0.0000076294}
+  m_SizeDelta: {x: 206.52, y: 95.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &525697771
 MonoBehaviour:
@@ -988,6 +988,10 @@ MonoBehaviour:
   endpositiony: 0
   movimiento: 0
   contador: 0
+  startprey: {fileID: 525697769}
+  endprey: {fileID: 1745201055}
+  startpredator: {fileID: 1915285740}
+  endpredator: {fileID: 1147029158}
 --- !u!1 &917252290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,12 +1163,12 @@ GameObject:
   - component: {fileID: 1147029161}
   - component: {fileID: 1147029160}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: okpredator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1147029159
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1182,8 +1186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 564.7, y: 132}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0.00034166, y: -306.24}
+  m_SizeDelta: {x: 136.73, y: 59.992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1147029160
 MonoBehaviour:
@@ -1717,12 +1721,12 @@ GameObject:
   - component: {fileID: 1745201058}
   - component: {fileID: 1745201057}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: okprey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1745201056
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1740,8 +1744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 553.65, y: 241}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -0.00000095367, y: -306.24}
+  m_SizeDelta: {x: 136.74, y: 59.995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745201057
 MonoBehaviour:
@@ -2152,12 +2156,12 @@ GameObject:
   - component: {fileID: 1915285743}
   - component: {fileID: 1915285742}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: ready predator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1915285741
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2175,8 +2179,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 553, y: 185}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 4.1997, y: -0.00024414}
+  m_SizeDelta: {x: 206.5, y: 95.812}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1915285742
 MonoBehaviour:
