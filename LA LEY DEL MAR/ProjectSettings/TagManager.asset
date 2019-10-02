@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - victima
+  - wall
   layers:
   - Default
   - TransparentFX
