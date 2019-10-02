@@ -8,7 +8,7 @@ public class Sensordeldepredador : MonoBehaviour
     public bool Predatorturn, preyturn;
     public GameObject predator, presa, flecha;
     // Vector2 startposition, endposition;
-    public float startpositionx, startpositiony, endpositionx, endpositiony, movimiento, contador;
+    public float startpositionx, startpositiony, endpositionx, endpositiony, movimiento, contador, turn;
     public GameObject startprey, endprey, startpredator, endpredator;
     Quaternion objetivo;
     // Start is called before the first frame update
@@ -17,6 +17,7 @@ public class Sensordeldepredador : MonoBehaviour
         Predatorturn = false;
         preyturn = false;
         movimiento = 1f;
+        turn = 0f;
     }
 
     // Update is called once per frame
@@ -53,6 +54,7 @@ public class Sensordeldepredador : MonoBehaviour
             startpositionx = presa.transform.position.x;
             startpositiony = presa.transform.position.y;
         contador = 7;
+        turn = turn + 1;
 
         endprey.SetActive(true);
         startprey.SetActive(false);
