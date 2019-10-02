@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131585799451035744}
   - component: {fileID: 8574588947972045867}
+  - component: {fileID: -293354050747309282}
   m_Layer: 0
   m_Name: flecha
   m_TagString: Untagged
@@ -79,3 +80,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-293354050747309282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5722694208223538152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e0d934dae98714eaf168407d90fc0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
