@@ -10,6 +10,7 @@ public class Sensordeldepredador : MonoBehaviour
     // Vector2 startposition, endposition;
     public float startpositionx, startpositiony, endpositionx, endpositiony, movimiento, contador;
     public GameObject startprey, endprey, startpredator, endpredator;
+    Quaternion objetivo;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,27 @@ public class Sensordeldepredador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        RaycastHit2D vision = Physics2D.Raycast(presa.transform.position, predator.transform.position - presa.transform.position);
+        Vector3 recorrido = transform.TransformDirection(predator.transform.position - presa.transform.position);
+        Debug.DrawRay(presa.transform.position, recorrido, Color.red);
+        if(preyturn == true)
+        {
+            predator.GetComponent<SpriteRenderer>().enabled = true;
+            if (vision.collider != null)
+            {
+               if(vision.collider.tag == "wall")
+                {
+                    predator.GetComponent<SpriteRenderer>().enabled = false;
+                }
+                else
+                {
+                    predator.GetComponent<SpriteRenderer>().enabled = true;
+                }
+            }
+        }
+       
+
+
     }
     public void readyprey()
     {
@@ -57,8 +78,11 @@ public class Sensordeldepredador : MonoBehaviour
        // {
             Vector2 margen = new Vector2(startpositionx - endpositionx, startpositiony - endpositiony);
         contador = 10;
+        //Vector3 direccion = transform.TransformDirection(margen - predator.transform.position);
+        objetivo = Quaternion.LookRotation(predator.transform.position, margen);
             Predatorturn = true;
-            Instantiate(flecha, predator.transform.position, Quaternion.LookRotation(margen, predator.transform.position));
+        Instantiate(flecha, predator.transform.position, objetivo);
+      //  flecha.transform.rotation = Quaternion.Slerp(transform.rotation, objetivo, 180 * Time.deltaTime);
         endpredator.SetActive(true);
         startpredator.SetActive(false);
        
