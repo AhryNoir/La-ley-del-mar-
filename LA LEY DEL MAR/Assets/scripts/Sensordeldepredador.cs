@@ -79,10 +79,10 @@ public class Sensordeldepredador : MonoBehaviour
             Vector2 margen = new Vector2(startpositionx - endpositionx, startpositiony - endpositiony);
         contador = 10;
         //Vector3 direccion = transform.TransformDirection(margen - predator.transform.position);
-        objetivo = Quaternion.LookRotation(margen, predator.transform.position);
+        objetivo = Quaternion.LookRotation(predator.transform.position, margen);
             Predatorturn = true;
         Instantiate(flecha, predator.transform.position, objetivo);
-        flecha.transform.rotation = Quaternion.Slerp(transform.rotation, objetivo, 180 * Time.deltaTime);
+      //  flecha.transform.rotation = Quaternion.Slerp(transform.rotation, objetivo, 180 * Time.deltaTime);
         endpredator.SetActive(true);
         startpredator.SetActive(false);
        

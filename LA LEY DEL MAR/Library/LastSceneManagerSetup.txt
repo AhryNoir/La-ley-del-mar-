@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/muerte.unity
+- path: Assets/Scenes/campo de pruebas.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
