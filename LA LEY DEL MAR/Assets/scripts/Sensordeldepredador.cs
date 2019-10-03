@@ -8,7 +8,7 @@ public class Sensordeldepredador : MonoBehaviour
 
     public bool Predatorturn, preyturn, gameover;
     public GameObject predator, presa, flecha, predatorender, presarender, lightrender, fondo;
-    public Text ronda;
+    public Text ronda, movimientos;
     // Vector2 startposition, endposition;
     public float startpositionx, startpositiony, endpositionx, endpositiony, movimiento, contador, turn;
     public GameObject uparrow, downarrow, leftarrow, rightarrow;
@@ -28,21 +28,33 @@ public class Sensordeldepredador : MonoBehaviour
     void Update()
     {
         ronda.text = turn.ToString();
+        movimientos.text = contador.ToString();
         RaycastHit2D visionpredator = Physics2D.Raycast(presa.transform.position, predator.transform.position - presa.transform.position);
         Vector3 recorrido = transform.TransformDirection(predator.transform.position - presa.transform.position);
         Debug.DrawRay(presa.transform.position, recorrido, Color.red);
         // RaycastHit2D checkuppresa = Physics2D.Raycast(new Vector2(presa.transform.position.x, presa.transform.position.y + 0.75f), new Vector2(presa.transform.position.x, presa.transform.position.y + 1), movimiento);
 
-        //Vector3 bua = transform.TransformDirection(new Vector2(presa.transform.position.x, presa.transform.position.y - 0.75f) - new Vector2(presa.transform.position.x, presa.transform.position.y - 1));
+        //Raycasts de la presa
         RaycastHit2D checkupresa = Physics2D.Raycast(presa.transform.position, Vector2.up, movimiento);
         Debug.DrawRay(presa.transform.position, Vector2.up * movimiento, Color.red);
         RaycastHit2D checkdownpresa = Physics2D.Raycast(presa.transform.position, Vector2.down, movimiento);
         Debug.DrawRay(presa.transform.position, Vector2.down * movimiento, Color.red);
         RaycastHit2D checkleftpresa = Physics2D.Raycast(presa.transform.position, Vector2.left, movimiento);
         Debug.DrawRay(presa.transform.position, Vector2.left * movimiento, Color.red);
+        RaycastHit2D checkrightpresa = Physics2D.Raycast(presa.transform.position, Vector2.right, movimiento);
+        Debug.DrawRay(presa.transform.position, Vector2.right * movimiento, Color.red);
 
-        // RaycastHit2D checkrightpresa = Physics2D.Raycast(presa.transform.position, new Vector2(presa.transform.position.x + 1, presa.transform.position.y));
-        //  RaycastHit2D checkleftpresa = Physics2D.Raycast(presa.transform.position, new Vector2(presa.transform.position.x - 1, presa.transform.position.y));
+        //Raycasts del depredador
+        RaycastHit2D checkupredator = Physics2D.Raycast(predator.transform.position, Vector2.up, movimiento);
+        Debug.DrawRay(predator.transform.position, Vector2.up * movimiento, Color.red);
+        RaycastHit2D checkdownpredator = Physics2D.Raycast(predator.transform.position, Vector2.down, movimiento);
+        Debug.DrawRay(predator.transform.position, Vector2.down * movimiento, Color.red);
+        RaycastHit2D checkleftpredator = Physics2D.Raycast(predator.transform.position, Vector2.left, movimiento);
+        Debug.DrawRay(predator.transform.position, Vector2.left * movimiento, Color.red);
+        RaycastHit2D checkrightpredator = Physics2D.Raycast(predator.transform.position, Vector2.right, movimiento);
+        Debug.DrawRay(predator.transform.position, Vector2.right * movimiento, Color.red);
+
+       
         if (preyturn == true)
         {
             presarender.GetComponent<SpriteRenderer>().enabled = true;
@@ -85,9 +97,17 @@ public class Sensordeldepredador : MonoBehaviour
                 leftarrow.SetActive(true);
             }
 
-            
-
-
+            if (checkrightpresa.collider != null)
+            {
+                if (checkleftpresa.collider.tag == "wall")
+                {
+                    rightarrow.SetActive(false);
+                }
+            }
+            else
+            {
+                rightarrow.SetActive(true);
+            }
 
         }
               
@@ -99,12 +119,67 @@ public class Sensordeldepredador : MonoBehaviour
             predatorender.GetComponent<SpriteRenderer>().enabled = true;
             lightrender.GetComponent<SpriteRenderer>().enabled = true;
 
+            if (checkupredator.collider != null)
+            {
+                if (checkupredator.collider.tag == "wall")
+                {
+                    uparrow.SetActive(false);
+                }
+            }
+            else
+            {
+                uparrow.SetActive(true);
+            }
+
+            if (checkdownpredator.collider != null)
+            {
+                if (checkdownpredator.collider.tag == "wall")
+                {
+                    downarrow.SetActive(false);
+                }
+            }
+            else
+            {
+                downarrow.SetActive(true);
+            }
+
+            if (checkleftpredator.collider != null)
+            {
+                if (checkleftpredator.collider.tag == "wall")
+                {
+                    leftarrow.SetActive(false);
+                }
+            }
+            else
+            {
+                leftarrow.SetActive(true);
+            }
+
+            if (checkrightpredator.collider != null)
+            {
+                if (checkleftpredator.collider.tag == "wall")
+                {
+                    rightarrow.SetActive(false);
+                }
+            }
+            else
+            {
+                rightarrow.SetActive(true);
+            }
+
+
         }
+
+
         if(preyturn == false && Predatorturn == false)
         {
             presarender.GetComponent<SpriteRenderer>().enabled = false;
             predatorender.GetComponent<SpriteRenderer>().enabled = false;
-            lightrender.GetComponent<SpriteRenderer>().enabled = false;           
+            lightrender.GetComponent<SpriteRenderer>().enabled = false;
+            uparrow.SetActive(true);
+            downarrow.SetActive(true);
+            rightarrow.SetActive(true);
+            leftarrow.SetActive(true);
         }
        
         
