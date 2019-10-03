@@ -299,23 +299,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 692976727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0b663b00e6c5040b739b196fe7172a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e4f07cdc00b9fc489376ec3957c592b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contador: {fileID: 0}
-  nturn: 0
   mejorpresa: {fileID: 1180533233}
   mediocrepresa: {fileID: 1607317896}
   peorpresa: {fileID: 2027150172}
   mejorpredator: {fileID: 1981942886}
   mediocrepredator: {fileID: 1755445729}
   peorpredator: {fileID: 36938666}
-  lapresa: 0
-  unapresa: 0
-  victima: 0
-  eldepredador: 0
-  undepredador: 0
-  pardillo: 0
 --- !u!4 &692976729
 Transform:
   m_ObjectHideFlags: 0

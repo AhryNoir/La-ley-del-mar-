@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/escena_tutorial.unity
     guid: 1a320d577d79d364ca28fbc0cddbfec6
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/campo de pruebas.unity
-    guid: 31147d69922789f43af4ecac8b8f7d36
+    path: Assets/Scenes/muerte.unity
+    guid: ce947f2e774904b4c8bbc4900d47a3a5
   m_configObjects: {}

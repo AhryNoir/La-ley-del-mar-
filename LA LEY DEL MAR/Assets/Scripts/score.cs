@@ -8,25 +8,20 @@ public class score : MonoBehaviour
     public Sensordeldepredador contador;
     public NewBehaviourScript finish;
     public float nturn;
-    public Text mejorpresa, mediocrepresa, peorpresa;
-    public Text mejorpredator, mediocrepredator, peorpredator;
+   
     public float lapresa, unapresa, victima;
     public float eldepredador, undepredador, pardillo;
     // Start is called before the first frame update
     void Start()
     {
+
         lapresa = 8;
         unapresa = 7;
         victima = 6;
         eldepredador = 6;
         undepredador = 7;
         pardillo = 8;
-        mejorpresa.text = PlayerPrefs.GetFloat("bestpresa", 8).ToString();
-        mediocrepresa.text = PlayerPrefs.GetFloat("presa", 7).ToString();
-        peorpresa.text = PlayerPrefs.GetFloat("worstpresa", 6).ToString();
-        mejorpredator.text = PlayerPrefs.GetFloat("bestpredator", 6).ToString();
-        mediocrepredator.text = PlayerPrefs.GetFloat("predator", 7).ToString();
-        peorpredator.text = PlayerPrefs.GetFloat("worstpredator", 8).ToString();
+       
     }
 
     // Update is called once per frame

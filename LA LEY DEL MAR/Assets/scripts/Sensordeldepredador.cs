@@ -8,7 +8,7 @@ public class Sensordeldepredador : MonoBehaviour
 
     public bool Predatorturn, preyturn, gameover;
     public GameObject predator, presa, flecha, predatorender, presarender, lightrender, fondo;
-    
+    public Text ronda;
     // Vector2 startposition, endposition;
     public float startpositionx, startpositiony, endpositionx, endpositiony, movimiento, contador, turn;
     public GameObject uparrow, downarrow, leftarrow, rightarrow;
@@ -27,32 +27,72 @@ public class Sensordeldepredador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ronda.text = turn.ToString();
         RaycastHit2D visionpredator = Physics2D.Raycast(presa.transform.position, predator.transform.position - presa.transform.position);
         Vector3 recorrido = transform.TransformDirection(predator.transform.position - presa.transform.position);
         Debug.DrawRay(presa.transform.position, recorrido, Color.red);
-        RaycastHit2D checkuppresa = Physics2D.Raycast(new Vector2(presa.transform.position.x, presa.transform.position.y + 0.75f), new Vector2(presa.transform.position.x, presa.transform.position.y + 1), 1);
-        RaycastHit2D checkdownpresa = Physics2D.Raycast(new Vector2(presa.transform.position.x, presa.transform.position.y - 0.75f), new Vector2(presa.transform.position.x, presa.transform.position.y - 1),-1);
-        Vector3 bua = transform.TransformDirection(new Vector2(presa.transform.position.x, presa.transform.position.y - 0.75f) - new Vector2(presa.transform.position.x, presa.transform.position.y - 1));
-        Debug.DrawRay(new Vector2(presa.transform.position.x, presa.transform.position.y - 0.75f), bua, Color.red);
-        RaycastHit2D checkrightpresa = Physics2D.Raycast(presa.transform.position, new Vector2(presa.transform.position.x + 1, presa.transform.position.y));
-        RaycastHit2D checkleftpresa = Physics2D.Raycast(presa.transform.position, new Vector2(presa.transform.position.x - 1, presa.transform.position.y));
+        // RaycastHit2D checkuppresa = Physics2D.Raycast(new Vector2(presa.transform.position.x, presa.transform.position.y + 0.75f), new Vector2(presa.transform.position.x, presa.transform.position.y + 1), movimiento);
+
+        //Vector3 bua = transform.TransformDirection(new Vector2(presa.transform.position.x, presa.transform.position.y - 0.75f) - new Vector2(presa.transform.position.x, presa.transform.position.y - 1));
+        RaycastHit2D checkupresa = Physics2D.Raycast(presa.transform.position, Vector2.up, movimiento);
+        Debug.DrawRay(presa.transform.position, Vector2.up * movimiento, Color.red);
+        RaycastHit2D checkdownpresa = Physics2D.Raycast(presa.transform.position, Vector2.down, movimiento);
+        Debug.DrawRay(presa.transform.position, Vector2.down * movimiento, Color.red);
+        RaycastHit2D checkleftpresa = Physics2D.Raycast(presa.transform.position, Vector2.left, movimiento);
+        Debug.DrawRay(presa.transform.position, Vector2.left * movimiento, Color.red);
+
+        // RaycastHit2D checkrightpresa = Physics2D.Raycast(presa.transform.position, new Vector2(presa.transform.position.x + 1, presa.transform.position.y));
+        //  RaycastHit2D checkleftpresa = Physics2D.Raycast(presa.transform.position, new Vector2(presa.transform.position.x - 1, presa.transform.position.y));
         if (preyturn == true)
         {
             presarender.GetComponent<SpriteRenderer>().enabled = true;
             predatorender.GetComponent<SpriteRenderer>().enabled = false;
             lightrender.GetComponent<SpriteRenderer>().enabled = false;
 
-          if (checkdownpresa.collider != null)
+            if (checkupresa.collider != null)
+            {
+                if(checkupresa.collider.tag == "wall")
                 {
-                    if (checkdownpresa.collider.tag == "wall")
-                    {
-                        downarrow.SetActive(false);
-                    }else
-                    {
-                        downarrow.SetActive(true);
-                    }
+                    uparrow.SetActive(false);
                 }
-       }
+            }
+            else
+            {
+                uparrow.SetActive(true);
+            }
+
+            if (checkdownpresa.collider != null)
+            {
+                if (checkdownpresa.collider.tag == "wall")
+                {
+                    downarrow.SetActive(false);         
+                }
+            }
+            else
+            {
+                downarrow.SetActive(true);
+            }
+
+            if (checkleftpresa.collider != null)
+            {
+                if(checkleftpresa.collider.tag == "wall")
+                {
+                    leftarrow.SetActive(false);
+                }
+            }
+            else
+            {
+                leftarrow.SetActive(true);
+            }
+
+            
+
+
+
+        }
+              
+                  
+                
         if(Predatorturn == true)
         {
             presarender.GetComponent<SpriteRenderer>().enabled = false;
