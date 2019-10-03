@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class cambio_escena : MonoBehaviour {
 
-    public Button tutorial, jugar_tuto, jugar_inicio, inicio_m, replay_m, replay_v, inicio_v, tutorial_m, tutorial_v;
+    public Button tutorial, jugar_tuto, jugar_inicio, inicio_m, replay_m, replay_v, inicio_v, tutorial_m, tutorial_v, ok_score_m;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +88,12 @@ public class cambio_escena : MonoBehaviour {
 
     }
 
+    public void escenascore_m()
+    {
 
+        SceneManager.LoadScene("rafa score");
+        ok_score_m.interactable = false;
+
+    }
 
 }
