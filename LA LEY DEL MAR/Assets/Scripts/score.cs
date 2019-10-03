@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class score : MonoBehaviour
 {
     public Sensordeldepredador contador;
+    public NewBehaviourScript finish;
     public float nturn;
     public Text mejorpresa, mediocrepresa, peorpresa;
     public Text mejorpredator, mediocrepredator, peorpredator;
@@ -32,6 +33,8 @@ public class score : MonoBehaviour
     void Update()
     {
         nturn = contador.turn;
+        if(finish.gameover == true)
+        {   
         if(nturn >= lapresa)
         {
             lapresa = nturn;
@@ -62,6 +65,7 @@ public class score : MonoBehaviour
             pardillo = nturn;
             PlayerPrefs.SetFloat("worstpredator", pardillo);
         }
-        
+        }
+
     }
 }

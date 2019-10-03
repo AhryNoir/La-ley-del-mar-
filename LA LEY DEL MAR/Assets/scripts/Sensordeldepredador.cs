@@ -5,44 +5,69 @@ using UnityEngine.UI;
 
 public class Sensordeldepredador : MonoBehaviour
 {
-    public bool Predatorturn, preyturn;
-    public GameObject predator, presa, flecha;
+
+    public bool Predatorturn, preyturn, gameover;
+    public GameObject predator, presa, flecha, predatorender, presarender, lightrender, fondo;
+    
     // Vector2 startposition, endposition;
     public float startpositionx, startpositiony, endpositionx, endpositiony, movimiento, contador, turn;
+    public GameObject uparrow, downarrow, leftarrow, rightarrow;
     public GameObject startprey, endprey, startpredator, endpredator;
-    Quaternion objetivo;
+  
     // Start is called before the first frame update
     void Start()
     {
         Predatorturn = false;
         preyturn = false;
-        movimiento = 1f;
+        movimiento = 0.75f;
         turn = 0f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D vision = Physics2D.Raycast(presa.transform.position, predator.transform.position - presa.transform.position);
+        RaycastHit2D visionpredator = Physics2D.Raycast(presa.transform.position, predator.transform.position - presa.transform.position);
         Vector3 recorrido = transform.TransformDirection(predator.transform.position - presa.transform.position);
         Debug.DrawRay(presa.transform.position, recorrido, Color.red);
-        if(preyturn == true)
+        RaycastHit2D checkuppresa = Physics2D.Raycast(new Vector2(presa.transform.position.x, presa.transform.position.y + 0.75f), new Vector2(presa.transform.position.x, presa.transform.position.y + 1), 1);
+        RaycastHit2D checkdownpresa = Physics2D.Raycast(new Vector2(presa.transform.position.x, presa.transform.position.y - 0.75f), new Vector2(presa.transform.position.x, presa.transform.position.y - 1),-1);
+        Vector3 bua = transform.TransformDirection(new Vector2(presa.transform.position.x, presa.transform.position.y - 0.75f) - new Vector2(presa.transform.position.x, presa.transform.position.y - 1));
+        Debug.DrawRay(new Vector2(presa.transform.position.x, presa.transform.position.y - 0.75f), bua, Color.red);
+        RaycastHit2D checkrightpresa = Physics2D.Raycast(presa.transform.position, new Vector2(presa.transform.position.x + 1, presa.transform.position.y));
+        RaycastHit2D checkleftpresa = Physics2D.Raycast(presa.transform.position, new Vector2(presa.transform.position.x - 1, presa.transform.position.y));
+        if (preyturn == true)
         {
-            predator.GetComponent<SpriteRenderer>().enabled = true;
-            if (vision.collider != null)
-            {
-               if(vision.collider.tag == "wall")
+            presarender.GetComponent<SpriteRenderer>().enabled = true;
+            predatorender.GetComponent<SpriteRenderer>().enabled = false;
+            lightrender.GetComponent<SpriteRenderer>().enabled = false;
+
+          if (checkdownpresa.collider != null)
                 {
-                    predator.GetComponent<SpriteRenderer>().enabled = false;
+                    if (checkdownpresa.collider.tag == "wall")
+                    {
+                        downarrow.SetActive(false);
+                    }else
+                    {
+                        downarrow.SetActive(true);
+                    }
                 }
-                else
-                {
-                    predator.GetComponent<SpriteRenderer>().enabled = true;
-                }
-            }
+       }
+        if(Predatorturn == true)
+        {
+            presarender.GetComponent<SpriteRenderer>().enabled = false;
+            predatorender.GetComponent<SpriteRenderer>().enabled = true;
+            lightrender.GetComponent<SpriteRenderer>().enabled = true;
+
+        }
+        if(preyturn == false && Predatorturn == false)
+        {
+            presarender.GetComponent<SpriteRenderer>().enabled = false;
+            predatorender.GetComponent<SpriteRenderer>().enabled = false;
+            lightrender.GetComponent<SpriteRenderer>().enabled = false;           
         }
        
-
+        
 
     }
     public void readyprey()
@@ -58,6 +83,7 @@ public class Sensordeldepredador : MonoBehaviour
 
         endprey.SetActive(true);
         startprey.SetActive(false);
+        fondo.GetComponent<Image>().enabled = false;
        
        // }
     }
@@ -71,23 +97,24 @@ public class Sensordeldepredador : MonoBehaviour
             endpositiony = presa.transform.position.y;
         startpredator.SetActive(true);
         endprey.SetActive(false);
-      
+        fondo.GetComponent<Image>().enabled = true;
+
     }
     public void predatorready()
     {
         // pulsas ready para empezar el turno del depredador
        // if (Predatorturn == false && preyturn == false)
        // {
-            Vector2 margen = new Vector2(startpositionx - endpositionx, startpositiony - endpositiony);
+            Vector2 margen = new Vector2((startpositionx + endpositionx)/2, (startpositiony + endpositiony)/2);
         contador = 10;
         //Vector3 direccion = transform.TransformDirection(margen - predator.transform.position);
-        objetivo = Quaternion.LookRotation(predator.transform.position, margen);
+      
             Predatorturn = true;
-        Instantiate(flecha, predator.transform.position, objetivo);
-      //  flecha.transform.rotation = Quaternion.Slerp(transform.rotation, objetivo, 180 * Time.deltaTime);
+        Instantiate(flecha, margen, Quaternion.identity);
+      
         endpredator.SetActive(true);
         startpredator.SetActive(false);
-       
+        fondo.GetComponent<Image>().enabled = false;
 
         // }
     }
@@ -99,7 +126,7 @@ public class Sensordeldepredador : MonoBehaviour
         Predatorturn = false;
         startprey.SetActive(true);
         endpredator.SetActive(false);
-
+        fondo.GetComponent<Image>().enabled = true;
 
         // }
     }
