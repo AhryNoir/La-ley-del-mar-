@@ -682,7 +682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494546278}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: predator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1390,7 +1390,7 @@ MonoBehaviour:
   flecha: {fileID: 3971046707170509977, guid: 10982e828e97bc84fbd12f073c055d5a, type: 3}
   predatorender: {fileID: 1281896137}
   presarender: {fileID: 1800621457}
-  lightrender: {fileID: 0}
+  lightrender: {fileID: 1478105629}
   fondo: {fileID: 1123384128}
   ronda: {fileID: 856952294}
   movimientos: {fileID: 1434033687}
@@ -2673,7 +2673,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1154935090}
-  m_Layer: 0
+  - component: {fileID: 1154935092}
+  - component: {fileID: 1154935091}
+  m_Layer: 2
   m_Name: dadpredator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2688,13 +2690,60 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154935089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4, y: 3.5, z: -7.920945}
+  m_LocalPosition: {x: -7.4, y: 3.6, z: -7.920945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494546278}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1154935091
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154935089}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.23, y: 0.17}
+  m_EdgeRadius: 0
+--- !u!50 &1154935092
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154935089}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1281896137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2705,7 +2754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1281896138}
   - component: {fileID: 1281896139}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 'personaje 2 edsde arriba '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2943,7 +2992,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1478105630}
   - component: {fileID: 1478105631}
-  m_Layer: 0
+  - component: {fileID: 1478105633}
+  - component: {fileID: 1478105632}
+  m_Layer: 2
   m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3012,6 +3063,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1478105632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478105629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b713d76c41c9c7409ad496ef9712bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameover: 0
+--- !u!61 &1478105633
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478105629}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -4.93, y: 3.3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 12.8, y: 7.2}
+    newSize: {x: 12.8, y: 7.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.99, y: 4.2}
+  m_EdgeRadius: 0
 --- !u!1 &1628246462
 GameObject:
   m_ObjectHideFlags: 0

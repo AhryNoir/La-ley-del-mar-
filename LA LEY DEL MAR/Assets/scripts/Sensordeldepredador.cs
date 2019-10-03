@@ -253,6 +253,7 @@ public class Sensordeldepredador : MonoBehaviour
             if (preyturn == true)
             {
                 presa.transform.Translate(new Vector3(0, movimiento, 0));
+              
                 contador = contador - 1;
             }
             if (Predatorturn == true)
