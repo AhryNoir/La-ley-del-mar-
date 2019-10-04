@@ -6,17 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class cambio_escena : MonoBehaviour {
 
-    public Button tutorial, jugar_tuto, jugar_inicio, inicio_m, replay_m, replay_v, inicio_v, tutorial_m, tutorial_v, ok_score_m;
+    public Button tutorial, jugar_tuto, jugar_inicio, inicio_m, replay_m, replay_v, inicio_v, tutorial_m, tutorial_v, ok_score_m, volver_muerte;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         
     }
 
@@ -27,24 +24,21 @@ public class cambio_escena : MonoBehaviour {
 
     }
 
-    public void juego1()
-    {
+    public void juego1() {
 
         SceneManager.LoadScene("campo de pruebas");
         jugar_inicio.interactable = false;
 
     }
 
-    public void escenatutorial()
-    {
+    public void escenatutorial() {
 
         SceneManager.LoadScene("escena_tutorial");
         tutorial.interactable = false;
 
     }
 
-    public void juego_muerte()
-    {
+    public void juego_muerte() {
 
         SceneManager.LoadScene("campo de pruebas");
         replay_m.interactable = false;
@@ -59,40 +53,45 @@ public class cambio_escena : MonoBehaviour {
 
     }
 
-    public void inicio_muerte()
-    {
+    public void inicio_muerte() {
 
         SceneManager.LoadScene("logo_inicio");
         inicio_m.interactable = false;
 
     }
-    public void inicio_victoria()
-    {
+
+    public void inicio_victoria() {
 
         SceneManager.LoadScene("logo_inicio");
         inicio_v.interactable = false;
 
     }
-    public void escenatutorial_m()
-    {
 
-        SceneManager.LoadScene("escena_tutorial");
-        tutorial.interactable = false;
-
-    }
-    public void escenatutorial_v()
-    {
+    public void escenatutorial_m() {
 
         SceneManager.LoadScene("escena_tutorial");
         tutorial.interactable = false;
 
     }
 
-    public void escenascore_m()
-    {
+    public void escenatutorial_v() {
+
+        SceneManager.LoadScene("escena_tutorial");
+        tutorial.interactable = false;
+
+    }
+
+    public void escenascore_m() {
 
         SceneManager.LoadScene("rafa score");
         ok_score_m.interactable = false;
+
+    }
+
+    public void escenamuerte_volver() {
+
+        SceneManager.LoadScene("muerte");
+        volver_muerte.interactable = false;
 
     }
 
